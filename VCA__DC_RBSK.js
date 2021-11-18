@@ -2,6 +2,9 @@
 //=====================en un periodo de 10 años dentro de la Reserva de la Biosfera de Sian Ka´an (RBSK), Quintana Roo, México.====================================/
 //=====================(Elaboración y modificación estructural de codigos por MMZC. Eloy Gayosso Soto).===========================================================/
 
+//Esta obra se ecuentra bajo los términos de la licencia GNU General Public License v3.0.======================================================/
+// Para obtener una copia, consulte https://choosealicense.com/licenses/gpl-3.0/ =============================================================/
+
 //================================1.Capas de estudio de entrada.====================================/
 
 var ZN =ee.FeatureCollection ('users/veronica78mere/ZN');
@@ -751,18 +754,18 @@ ee.Feature(ee.Geometry.Point([-87.44855113407232,19.310122795288418]), {'name': 
 ee.Feature(ee.Geometry.Point([-87.44713492771245,19.311034066061392]), {'name': 'ZS_116'}),
 ee.Feature(ee.Geometry.Point([-87.44623370548345,19.31186433056632]), {'name': 'ZS_117'}),
 ee.Feature(ee.Geometry.Point([-87.44565434833623,19.312208585344102]), {'name': 'ZS_118'}),
-ee.Feature(ee.Geometry.Point([-87.44698472400762,19.31261359003701]), {'name': 'ZS_119'}),
-ee.Feature(ee.Geometry.Point([-87.44859404941656,19.312897092725112]), {'name': 'ZS_120'}),
-ee.Feature(ee.Geometry.Point([-87.44994588276006,19.312795841821508]), {'name': 'ZS_121'}),
-ee.Feature(ee.Geometry.Point([-87.45159812351324,19.312492088734473]), {'name': 'ZS_122'}),
-ee.Feature(ee.Geometry.Point([-87.45327182193853,19.312836342190472]), {'name': 'ZS_123'}),
-ee.Feature(ee.Geometry.Point([-87.45414632266744,19.313406019960322]), {'name': 'ZS_124'}),
-ee.Feature(ee.Geometry.Point([-87.45547669833883,19.314560272236218]), {'name': 'ZS_125'}),
-ee.Feature(ee.Geometry.Point([-87.45717185443624,19.315714516362448]), {'name': 'ZS_126'}),
-ee.Feature(ee.Geometry.Point([-87.45848077243551,19.31664600567962]), {'name': 'ZS_127'}),
-ee.Feature(ee.Geometry.Point([-87.45976823276266,19.31782048464407]), {'name': 'ZS_128'}),
-ee.Feature(ee.Geometry.Point([-87.48144483120599,19.273534077207877]), {'name': 'ZS_129'}),
-ee.Feature(ee.Geometry.Point([-87.46610370478734,19.289891759614225]), {'name': 'ZS_130'}),  
+//ee.Feature(ee.Geometry.Point([-87.44698472400762,19.31261359003701]), {'name': 'ZS_119'}),
+//ee.Feature(ee.Geometry.Point([-87.44859404941656,19.312897092725112]), {'name': 'ZS_120'}),
+//ee.Feature(ee.Geometry.Point([-87.44994588276006,19.312795841821508]), {'name': 'ZS_121'}),
+//ee.Feature(ee.Geometry.Point([-87.45159812351324,19.312492088734473]), {'name': 'ZS_122'}),
+//ee.Feature(ee.Geometry.Point([-87.45327182193853,19.312836342190472]), {'name': 'ZS_123'}),
+//ee.Feature(ee.Geometry.Point([-87.45414632266744,19.313406019960322]), {'name': 'ZS_124'}),
+//ee.Feature(ee.Geometry.Point([-87.45547669833883,19.314560272236218]), {'name': 'ZS_125'}),
+//ee.Feature(ee.Geometry.Point([-87.45717185443624,19.315714516362448]), {'name': 'ZS_126'}),
+//ee.Feature(ee.Geometry.Point([-87.45848077243551,19.31664600567962]), {'name': 'ZS_127'}),
+//ee.Feature(ee.Geometry.Point([-87.45976823276266,19.31782048464407]), {'name': 'ZS_128'}),
+//ee.Feature(ee.Geometry.Point([-87.48144483120599,19.273534077207877]), {'name': 'ZS_129'}),
+//ee.Feature(ee.Geometry.Point([-87.46610370478734,19.289891759614225]), {'name': 'ZS_130'}),  
    ];
 var ZSWaypoints = ee.FeatureCollection(waypoints01); //Generando una colección de features con los waypoints
 
