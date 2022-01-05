@@ -10,50 +10,58 @@
 var ZN =ee.FeatureCollection ('users/veronica78mere/ZN');
 var ZS = ee.FeatureCollection ('users/veronica78mere/ZS');
 
-//===============================1.1. Fusión capas vectoriales de área de estudio.=====================/
+//=========================1.1. Determinando la superficie de cada zona de estudio.====================================/
+var ZNarea= ZN.geometry().area().divide(10000);
+var ZSarea= ZS.geometry().area().divide(10000);
+
+//======================================1.2. Imprimiendo superficies áreas de estudio.===============================/
+print ('Superficie ZN ha', ZNarea);
+print ('Superficie ZS ha', ZSarea);
+
+//===============================1.3. Fusión capas vectoriales de área de estudio.=====================/
 
 var zonas =ee.FeatureCollection (ZN.merge(ZS));
 
-//====================================1.2. Fecha de estudio total.============================/
+//====================================2. Fecha de estudio total.============================/
 var StartYear = 2011, EndYear = 2020;
 
-//=====================================1.3. Lista de meses.
+//=====================================2.1. Lista de meses.
 var months = ee.List.sequence(1,12);
  
-//====================================1.4.Estableciendo el inicio y fin del estudio
+//====================================2.2.Estableciendo el inicio y fin del estudio
 var startdate = ee.Date.fromYMD(StartYear,1,1);
 var enddate = ee.Date.fromYMD(EndYear,12,31);
 
- // ===================================1.5. Lista de años variables 
+ // ===================================2.3. Lista de años variables 
 var years = ee.List.sequence(StartYear,EndYear);
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/
 //----------------------------------Precipitación (mm)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/
-//=========================2. Variables Climaticas Ambientales Obtenidas del Catalogo de TERRACLIMATE código de Carmona-Arteaga (2020) modificado y adaptado para el presnete estudio==============/
+//=========================3. Variables Climaticas Ambientales Obtenidas del Catalogo de TERRACLIMATE código de Carmona-Arteaga (2020) modificado y adaptado para el presnete estudio==============/
 
-//=========================2.1.Colección de entrada de precipitacion y temperatura máxima para superficies terrestres globales, de la documentación  GEE (TerraClimate por Abatzoglou et al., (2018): https://www.nature.com/articles/sdata2017191#Tab2.===========/
+//=========================3.1.Colección de entrada de precipitacion y temperatura máxima para superficies terrestres globales, de la documentación  GEE (TerraClimate por Abatzoglou et al., (2018): https://www.nature.com/articles/sdata2017191#Tab2.===========/
 
-//2.1.2.==============================================================/
+//3.1.2.==============================================================/
 var clima = ee.ImageCollection('IDAHO_EPSCOR/TERRACLIMATE')
                   .select('pr','tmmx','tmmn')
                   .filterDate (startdate, enddate)
                   .filterBounds(zonas);
-//2.1.3.==============================================================/
+//3.1.3.==============================================================/
            
      var Tempscala = clima.map(function(image) {
      return image.select('tmmx','tmmn').multiply(0.1).set(
       'system:time_start', image.get('system:time_start'));
 });
 
-//==========================3.Seleccion de variables climaticas dentro de la RBSK.===========================================================/
+//==========================4.Seleccion de variables climaticas dentro de la RBSK.===========================================================/
 
 var TemperaturaMaxima = Tempscala.select('tmmx').median().clip(zonas);//.set('system:time_start', Temp.get('system:time_start'));
 var TemperaturaMinima = Tempscala.select('tmmn').median().clip(zonas);//.set('system:time_start', clima.get('system:time_start'));
 var PrecipitacionAcumulada = clima.select('pr').median().clip(zonas);//.set('system:time_start', clima.get('system:time_start'));
 
-//===========================4. Cálculo Anual de Precipitación===============================================================================/
+//===========================5. Cálculo Anual de Precipitación===============================================================================/
 var Precipitacion_anual_acum = ee.ImageCollection.fromImages(
   years.map(function (year) {
     var annual = clima.filter(ee.Filter.calendarRange(year, year, 'year'))
@@ -63,7 +71,7 @@ var Precipitacion_anual_acum = ee.ImageCollection.fromImages(
         .set('year', year)
         .set('system:time_start', ee.Date.fromYMD(year, 1, 1));
 }));
-//==================================4.1.Gráfico de precipitación anual===============================================/
+//==================================5.1.Gráfico de precipitación anual===============================================/
 
 var chartP_anual = ui.Chart.image.seriesByRegion({
     imageCollection: Precipitacion_anual_acum,
@@ -81,17 +89,17 @@ var chartP_anual = ui.Chart.image.seriesByRegion({
       )
     .setChartType('ColumnChart'); 
     
-//========================4.2.Imprimir gráfico anual===================================================================================/
+//========================5.2.Imprimir gráfico anual===================================================================================/
 //print(chartP_anual);
 
-//=========================4.3. Parametros de visualización.==============================================================================/
+//=========================5.3. Parametros de visualización.==============================================================================/
 var VisAnual = {opacity:1,
             bands:['pr'],
             min:954.00,
             max:2038.00,
             palette:['cyan','darkblue','orange','Magenta','DarkMagenta','DeepPink']};
 
-//========================================5.Calculo mensual de precipitación.==================================/
+//========================================6.Calculo mensual de precipitación.==================================/
 
 var Precipitacion_mensual_acum =  ee.ImageCollection.fromImages(  // Devuelve la Imagen para Colección.
   years.map(function (año) { // Se aplica la funbcion Map (LOOP) a la variable años
@@ -111,7 +119,7 @@ var Precipitacion_mensual_acum =  ee.ImageCollection.fromImages(  // Devuelve la
           }).flatten()
           ); /// Colecciones apiladas
 
-//==============================5.1.Gráfico de precipitación mensual.============================================================/
+//==============================6.1.Gráfico de precipitación mensual.============================================================/
 var chartMensual = ui.Chart.image.seriesByRegion({
     imageCollection: Precipitacion_mensual_acum,
     regions: zonas, 
@@ -130,10 +138,10 @@ var chartMensual = ui.Chart.image.seriesByRegion({
     .setChartType('ColumnChart');  
 //'LineChart', 'ColumnChart'
 
-//===============================5.2.Imprimir gráfico anual======================================================/
+//===============================6.2.Imprimir gráfico anual======================================================/
 print(chartMensual);
 
-//=================================5.3. Parametros de visualización.==================================================/
+//=================================6.3. Parametros de visualización.==================================================/
 var Vis = {opacity:1,
             bands:['pr'],
             min:60.00,
@@ -144,7 +152,7 @@ var Vis = {opacity:1,
 //------------------------------------Temperatura Máxima (°C)--------------------------------------------------------------------/
 //------------------------------------------------------------------------------------------------------------------------------/
 
-//================================6. Función para el cálculo  de la temperatura anual máxima y mínima.===============================================================================/
+//================================7. Función para el cálculo  de la temperatura anual máxima y mínima.===============================================================================/
 var Temperatura_anual_acum = ee.ImageCollection.fromImages(
   years.map(function (year) {
     var annual = Tempscala.filter(ee.Filter.calendarRange(year, year, 'year'))
@@ -155,7 +163,7 @@ var Temperatura_anual_acum = ee.ImageCollection.fromImages(
         .set('system:time_start', ee.Date.fromYMD(year, 1, 1));
 }));
 
-//========================================7.Función parea el cálculo de la temperatura mensual máxima y mínima.==================================/
+//========================================8.Función parea el cálculo de la temperatura mensual máxima y mínima.==================================/
 
 var Temperatura_mensual_acum =  ee.ImageCollection.fromImages(  // Devuelve la Imagen para Colección.
   years.map(function (año) { // Se aplica la funbcion Map (LOOP) a la variable años
@@ -175,7 +183,7 @@ var Temperatura_mensual_acum =  ee.ImageCollection.fromImages(  // Devuelve la I
           }).flatten()
           ); /// Colecciones apiladas
 
-//==================================8.Gráfico de temperatura anual máxima. ===============================================/
+//==================================9.Gráfico de temperatura anual máxima. ===============================================/
 
 var chartT01_anual= ui.Chart.image.seriesByRegion({
     imageCollection: Temperatura_anual_acum,
@@ -193,10 +201,10 @@ var chartT01_anual= ui.Chart.image.seriesByRegion({
       )
     .setChartType('ColumnChart'); 
     
-//================================8.1.Imprimir gráfico anual===================================================================================/
+//================================9.1.Imprimir gráfico anual===================================================================================/
 //print(chartT01_anual);
 
-//=================================8.2. Parametros de visualización.==============================================================================/
+//=================================9.2. Parametros de visualización.==============================================================================/
 var VisAnual02 = {opacity:1,
             bands:['tmmx'],
             min:0,
@@ -204,7 +212,7 @@ var VisAnual02 = {opacity:1,
             palette:['cyan','darkblue','orange','Magenta','DarkMagenta','DeepPink']};
 
 
-//================================9.Gráfico de la temperatura máxima mensual.============================================================/
+//================================10.Gráfico de la temperatura máxima mensual.============================================================/
 var chartMensual02= ui.Chart.image.seriesByRegion({
     imageCollection: Temperatura_mensual_acum,
     regions: zonas, 
@@ -223,10 +231,10 @@ var chartMensual02= ui.Chart.image.seriesByRegion({
     .setChartType('ColumnChart');  
 //'LineChart', 'ColumnChart'
 
-//==================================9.1.Imprimir gráfico anual======================================================/
+//==================================10.1.Imprimir gráfico anual======================================================/
 print(chartMensual02);
 
-//==================================9.2. Parametros de visualización.==================================================/
+//==================================10.2. Parametros de visualización.==================================================/
 var Vis02 = {opacity:1,
             bands:['tmmx'],
             min:0,
@@ -237,7 +245,7 @@ var Vis02 = {opacity:1,
 //------------------------------------Temperatura Mínima (°C)--------------------------------------------------------------------/
 //------------------------------------------------------------------------------------------------------------------------------/
 
-//==================================10.Gráfico de temperatura anual mínima.===============================================/
+//==================================11.Gráfico de temperatura anual mínima.===============================================/
 
 var chartT02_anual= ui.Chart.image.seriesByRegion({
     imageCollection: Temperatura_anual_acum,
@@ -255,10 +263,10 @@ var chartT02_anual= ui.Chart.image.seriesByRegion({
       )
     .setChartType('ColumnChart'); 
     
-//================================10.1.Imprimir gráfico anual===================================================================================/
+//================================11.1.Imprimir gráfico anual===================================================================================/
 //print(chartT02_anual);
 
-//=================================10.2. Parametros de visualización.==============================================================================/
+//=================================11.2. Parametros de visualización.==============================================================================/
 var VisAnual03 = {opacity:1,
             bands:['tmmn'],
             min:0,
@@ -266,7 +274,7 @@ var VisAnual03 = {opacity:1,
             palette:['cyan','darkblue','orange','Magenta','DarkMagenta','DeepPink']};
 
 
-//================================11.Gráfico de la temperatura mensual mínima.============================================================/
+//================================12.Gráfico de la temperatura mensual mínima.============================================================/
 var chartMensual03= ui.Chart.image.seriesByRegion({
     imageCollection: Temperatura_mensual_acum,
     regions: zonas, 
@@ -285,17 +293,17 @@ var chartMensual03= ui.Chart.image.seriesByRegion({
     .setChartType('ColumnChart');  
 //'LineChart', 'ColumnChart'
 
-//==================================11.1.Imprimir gráfico anual======================================================/
+//==================================12.1.Imprimir gráfico anual======================================================/
 print(chartMensual03);
 
-//==================================11.2. Parametros de visualización.==================================================/
+//==================================12.2. Parametros de visualización.==================================================/
 var Vis03 = {opacity:1,
             bands:['tmmn'],
             min:0,
             max:100,
             palette:['red','orange','yellow','cyan','magenta','darkmagenta']};
 
-//==================================12.Exportar variables ambientales.======================================================/
+//==================================13.Exportar variables ambientales.======================================================/
 
 Export.image.toDrive({image: TemperaturaMaxima, 
 description: 'TemperaturaMaxima', 
@@ -316,7 +324,7 @@ crs: 'EPSG:32616',
 scale: 30,
 folder: 'GEE', region: zonas});
 
-//===================================13. Agregar la capa de variables ambientales al mapa.================================================================================/
+//===================================14. Agregar la capa de variables ambientales al mapa.================================================================================/
 
 //Map.addLayer(Temperatura_anual_acum, VisAnual02, 'Temperatura Anual Máxima',1);
 Map.addLayer(Temperatura_mensual_acum , Vis02, 'Temperatura Mensual Máxima',1);
@@ -329,7 +337,7 @@ Map.addLayer(Precipitacion_mensual_acum, Vis, 'Precipitación Mensual',1);
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------/
 //--------------------------------------------------------------------------------------------------------------------------------------------------------/
-//--------------------------------------------------14.Carga del Modelo Diggital de Elavación a 30m de resolución de la NASA SRTM------------------------/
+//--------------------------------------------------15.Carga del Modelo Diggital de Elavación a 30m de resolución de la NASA SRTM------------------------/
 
 var dem = ee.Image("USGS/SRTMGL1_003");
 
@@ -337,12 +345,12 @@ var dem = ee.Image("USGS/SRTMGL1_003");
 //    var medianbands = image.reduce(ee.Reducer.median());
 //  return image.addBands(medianbands);
 //}
-//===========================================14.1.Obtener pendiente para las zonas de estudio.===========================================================/
+//===========================================15.1.Obtener pendiente para las zonas de estudio.===========================================================/
 //===========================(la tasa máxima de cambio de valor del DEM de un pixel con respecto a sus vecinos).========================================/
 
   var pendiente =  ee.Terrain.slope(dem).clip(zonas);//.map(median); 
 
-//==================================14.2.Imprimiendo estadísticos por zona de estudio.=======================================================================/
+//==================================15.2.Imprimiendo estadísticos por zona de estudio.=======================================================================/
 
 //1.======================================================/
 var reducerp01 = ee.Reducer.mean();
@@ -374,7 +382,7 @@ var resultsp02 =dem.select('elevation').reduceRegion({reducer: reducersp02,
 //Imprimir en consola.
 print ('Estadisticos_elevación_ZS', resultsp02);
 
-//==================================14.3 Generando perfil de elevación ZN y ZS, distribuyendo los puntos sobre la=======================================/
+//==================================15.3 Generando perfil de elevación ZN y ZS, distribuyendo los puntos sobre la=======================================/
 //=======================================duna costera dentro de la RBSK.============================================/
 
 //1.========================================ZN.==========================================================/
@@ -792,7 +800,7 @@ chartZS.setOptions({
 //4. ===========================Imprimiendo gráfico en la consola.============================================/
 print(chartZS);
 
-//========================================15. Exportando Imagen de pendiente por zona de estudio.======================================================/
+//========================================16. Exportando Imagen de pendiente por zona de estudio.======================================================/
 
 //======================================1.Zonas de estudio (ZN-ZS).==================================================/
  Export.image.toDrive({  image: pendiente,
@@ -810,7 +818,7 @@ print(chartZS);
 // scale: 30,
 // region: ZS});
 
-//====================================16. Añadir pendiente al mapa.======================/
+//====================================17. Añadir pendiente al mapa.======================/
 Map.addLayer(pendiente, {
   min: 0,
   max: 90,
@@ -820,7 +828,7 @@ Map.addLayer(pendiente, {
     '307ef3', '269db1', '30c8e2', '32d3ef', '3be285', '3ff38f', '86e26f'
   ]},'Pendiente_Zonas'); 
 
-//====================================17.Añadir al mapa el valor de la mediana de la imagen y perimetro del área de estudio.==========================/
+//====================================18.Añadir al mapa el valor de la mediana de la imagen y perimetro del área de estudio.==========================/
 
 Map.addLayer(ZSWaypoints, {color: '98ff00'},'Puntos_ZS');
 Map.addLayer(ZNWaypoints, {color: '0b4a8b'},'Puntos_ZN');
@@ -828,5 +836,5 @@ Map.addLayer (Sian_Per,{color:'red'}, 'RBSK');
 Map.addLayer (ZN, {color:'blue'}, 'ZN');
 Map.addLayer (ZS, {color:'cyan'}, 'ZS');
 
-//======================================18.Centrar el mapa en el archivo vectorial de la RBSK (Perimetro).==================================================/
+//======================================19.Centrar el mapa en el archivo vectorial de la RBSK (Perimetro).==================================================/
 Map.centerObject (Sian_Per, 10);
