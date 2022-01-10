@@ -28,9 +28,9 @@ Ejemplos de los datos mensuales:
 
 De igual forma, se presenta la estimación de la pendiente con puntos al zar dentro de la ZN y ZS con el catalogo de Modelo Diggital de Elavación a 30m de resolución de la NASA SRTM.
 
-1. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/HIST_NDVI_ZN.png)
+1. ![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/Pend-ZN.png)
 
-2. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/HIST_NDVI_ZS.png)
+2. ![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/Pend-ZS.png)
 
 
 ### Capas raster bianuales. 
