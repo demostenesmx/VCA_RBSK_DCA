@@ -16,11 +16,11 @@ El repostirorio se elaboró de acuerdo a los lineamientos de la [**licencia GNU 
 
 Estimaciones.
 
-Con la ejecución de este código se obtendrán series de tiempo con valores mensuales de la mediana por año durante un periodo de 10 años, para la zona norte y sur de la RBSK, con ambos índices multiespectrales de vegetación NDVI y SAVI.
+Con la ejecución de este código se obtendrán series de tiempo con valores mensuales de la mediana por año durante un periodo de 10 años, de las variables climaticas estimadas  para la zona norte y sur de la RBSK, con el empleo del catalogo de Terraclimate.
 
 Ejemplos de forma individual:
 
-1. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/NDVI-ZN.png)
+1. ![alt text](https:)
 
 2. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/SAVI-ZS.png)
 
