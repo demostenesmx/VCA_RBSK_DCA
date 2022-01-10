@@ -18,19 +18,15 @@ Estimaciones.
 
 Con la ejecución de este código se obtendrán series de tiempo con valores mensuales de la mediana por año durante un periodo de 10 años, de las variables climaticas estimadas  para la zona norte y sur de la RBSK, con el empleo del catalogo de Terraclimate.
 
-Ejemplos de forma individual:
+Ejemplos de los datos mensuales:
 
 1. ![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/PrepM_ZN-ZS.png)
 
-2. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/SAVI-ZS.png)
+2. ![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/temmaxM_ZN-ZS.png)
 
-Ejemplo de forma unificada:
+3.![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/temminM_ZN-ZS.png)
 
-1. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/IVM_ZN_NDVI-SAVI.png)
-
-2. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/IVM_ZS_NDVI-SAVI.png)
-
-Ejemplos de algunos Histogramas obtenidos donde se aprecia la distribución de los valores de los IVM estimados. 
+De igual forma, se presenta la estimación de la pendiente con puntos al zar dentro de la ZN y ZS con el catalogo de Modelo Diggital de Elavación a 30m de resolución de la NASA SRTM.
 
 1. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/HIST_NDVI_ZN.png)
 
