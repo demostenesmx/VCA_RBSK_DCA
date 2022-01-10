@@ -20,7 +20,7 @@ Con la ejecución de este código se obtendrán series de tiempo con valores men
 
 Ejemplos de forma individual:
 
-1. ![alt text](https:)
+1. ![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/PrepM_ZN-ZS.png)
 
 2. ![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/SAVI-ZS.png)
 
