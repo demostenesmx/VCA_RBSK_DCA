@@ -33,10 +33,10 @@ De igual forma, se presenta la estimación de la pendiente con puntos al zar den
 2. ![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/Pend-ZS.png)
 
 
-### Capas raster bianuales. 
+### Capas raster VCA. 
 Las capas raster de exportación se ubicaran dentro de la pestaña Tasks, para su descarga en google drive y posteriormente ser descargadas a la PC personal para su manipulación.
 
-![alt text](https://github.com/demostenesmx/NDVI-SAVI_DCA/blob/main/Raster_Exportación.JPG)
+![alt text](https://github.com/demostenesmx/VCA_RBSK_DCA/blob/main/Tasks_VCA.JPG)
 
 La manipulación de la información contenida en los rasaters puede realizarse, a traves, del sistema de información geografica de su preferencia. Para el presente caso de estudio se utilizó el software de acceso libre QGIS.
 
