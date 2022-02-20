@@ -618,7 +618,7 @@ ee.Feature(ee.Geometry.Point([-87.46474711537306,20.127113127194317]), {'name': 
 
 var ZNWaypoints = ee.FeatureCollection(waypoints); //Generando una colección de features con los waypoints
 
-//Generando gráfico del perfil de elevación de la ZS de la RBSK.
+//Generando gráfico del perfil de elevación de la ZN de la RBSK.
 var chartZN = ui.Chart.image.byRegion({
   image: pendiente,
   regions: ZNWaypoints,
