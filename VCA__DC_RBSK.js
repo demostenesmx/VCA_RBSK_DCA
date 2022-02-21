@@ -4,7 +4,6 @@
 
 //Esta obra se ecuentra bajo los términos de la licencia GNU General Public License v3.0.======================================================/
 // Para obtener una copia, consulte https://choosealicense.com/licenses/gpl-3.0/ =============================================================/
-///Este código se encuentra publicado en el repositorio GitHub, link de acceso: https://github.com/demostenesmx/VCA_RBSK_DCA.git
 
 //================================1.Capas de estudio de entrada.====================================/
 
@@ -433,7 +432,7 @@ ee.Feature(ee.Geometry.Point([-87.46329264557565,19.83148785312002]), {'name': '
 ee.Feature(ee.Geometry.Point([-87.46106104767526,19.832820065022236]), {'name': 'ZN_41'}),
 ee.Feature(ee.Geometry.Point([-87.45902256882394,19.833506351642146]), {'name': 'ZN_42'}),
 ee.Feature(ee.Geometry.Point([-87.45760636246408,19.833667830415955]), {'name': 'ZN_43'}),
-ee.Feature(ee.Geometry.Point([-87.45664076721872,19.833607275895016]), {'name': 'ZN_44'}),
+ee.Feature(ee.Geometry.Point([-87.44762180502822,19.84233486847714]), {'name': 'ZN_44'}),
 ee.Feature(ee.Geometry.Point([-87.45557861244882,19.833395334889943]), {'name': 'ZN_45'}),
 ee.Feature(ee.Geometry.Point([-87.45450036442483,19.83356690620157]), {'name': 'ZN_46'}),
 ee.Feature(ee.Geometry.Point([-87.45333884082969,19.833997549833548]), {'name': 'ZN_47'}),
@@ -473,7 +472,7 @@ ee.Feature(ee.Geometry.Point([-87.43391797211994,19.877653603114645]), {'name': 
 ee.Feature(ee.Geometry.Point([-87.43349153423776,19.880211175864616]), {'name': 'ZN_81'}),
 ee.Feature(ee.Geometry.Point([-87.43297606449765,19.881934456399797]), {'name': 'ZN_82'}),
 ee.Feature(ee.Geometry.Point([-87.43236074523904,19.883591231162928]), {'name': 'ZN_83'}),
-ee.Feature(ee.Geometry.Point([-87.43133077697732,19.88475148981296]), {'name': 'ZN_84'}),
+ee.Feature(ee.Geometry.Point([-87.43733841948361,19.928811855734104]), {'name': 'ZN_84'}),
 ee.Feature(ee.Geometry.Point([-87.430193520355,19.885094521177496]), {'name': 'ZN_85'}),
 ee.Feature(ee.Geometry.Point([-87.43031883460199,19.88783672174572]), {'name': 'ZN_86'}),
 ee.Feature(ee.Geometry.Point([-87.43067167134085,19.889463130104797]), {'name': 'ZN_87'}),
@@ -486,12 +485,12 @@ ee.Feature(ee.Geometry.Point([-87.43314281746336,19.911417056940085]), {'name': 
 ee.Feature(ee.Geometry.Point([-87.43486288847359,19.916620436950534]), {'name': 'ZN_94'}),
 ee.Feature(ee.Geometry.Point([-87.43613215723454,19.923336243642925]), {'name': 'ZN_95'}),
 ee.Feature(ee.Geometry.Point([-87.43660885863156,19.926633187064898]), {'name': 'ZN_96'}),
-ee.Feature(ee.Geometry.Point([-87.43733841948361,19.928811855734104]), {'name': 'ZN_97'}),
+ee.Feature(ee.Geometry.Point([-87.45693515717265,19.94276089912172]), {'name': 'ZN_97'}),
 ee.Feature(ee.Geometry.Point([-87.4388630372624,19.929701564477526]), {'name': 'ZN_98'}),
 ee.Feature(ee.Geometry.Point([-87.4405581933598,19.930548811633955]), {'name': 'ZN_99'}),
 ee.Feature(ee.Geometry.Point([-87.44208168808026,19.929721737081664]), {'name': 'ZN_100'}),
 ee.Feature(ee.Geometry.Point([-87.44392704788251,19.929681391870805]), {'name': 'ZN_101'}),
-ee.Feature(ee.Geometry.Point([-87.44564366165204,19.929721737081664]), {'name': 'ZN_102'}),
+ee.Feature(ee.Geometry.Point([-87.4614860010929,19.951071590769246]), {'name': 'ZN_102'}),
 ee.Feature(ee.Geometry.Point([-87.44656634155317,19.92865258551394]), {'name': 'ZN_103'}),
 ee.Feature(ee.Geometry.Point([-87.44819712463422,19.928995521710434]), {'name': 'ZN_104'}),
 ee.Feature(ee.Geometry.Point([-87.4501074895492,19.930126751348155]), {'name': 'ZN_105'}),
@@ -560,7 +559,7 @@ ee.Feature(ee.Geometry.Point([-87.4761204785375,20.019255887965304]), {'name': '
 ee.Feature(ee.Geometry.Point([-87.47605074110311,20.02024978116066]), {'name': 'ZN_168'}),  
 ee.Feature(ee.Geometry.Point([-87.47609902086538,20.021309183864354]), {'name': 'ZN_169'}),
 ee.Feature(ee.Geometry.Point([-87.47620630922597,20.022507210939455]), {'name': 'ZN_170'}), 
-ee.Feature(ee.Geometry.Point([-87.47627486727467,20.023405245850356]), {'name': 'ZN_171'}),
+ee.Feature(ee.Geometry.Point([-87.47806414215042,20.037031534606044]), {'name': 'ZN_171'}),
 ee.Feature(ee.Geometry.Point([-87.47632314703694,20.024060464521718]), {'name': 'ZN_172'}),
 ee.Feature(ee.Geometry.Point([-87.47637816039537,20.024764668564472]), {'name': 'ZN_173'}),
 ee.Feature(ee.Geometry.Point([-87.47646935550188,20.02558116435264]), {'name': 'ZN_174'}),
@@ -575,12 +574,12 @@ ee.Feature(ee.Geometry.Point([-87.4776997576925,20.034657402932773]), {'name': '
 ee.Feature(ee.Geometry.Point([-87.47772173756479,20.035904858325924]), {'name': 'ZN_183'}),
 ee.Feature(ee.Geometry.Point([-87.47794612495376,20.036940819671127]), {'name': 'ZN_184'}),
 ee.Feature(ee.Geometry.Point([-87.47841471566014,20.03810040951885]), {'name': 'ZN_185'}),
-ee.Feature(ee.Geometry.Point([-87.47913472535873,20.040450225894492]), {'name': 'ZN_186'}),
-ee.Feature(ee.Geometry.Point([-87.47926347139145,20.042445897776084]), {'name': 'ZN_187'}),
+ee.Feature(ee.Geometry.Point([-87.47799569507542,20.067908417215236]), {'name': 'ZN_186'}),
+ee.Feature(ee.Geometry.Point([-87.47820475796958,20.070618947660186]), {'name': 'ZN_187'}),
 ee.Feature(ee.Geometry.Point([-87.47916691186691,20.044056514340774]), {'name': 'ZN_188'}),  
 ee.Feature(ee.Geometry.Point([-87.4787561131612,20.04592127985551]), {'name': 'ZN_189'}),
 ee.Feature(ee.Geometry.Point([-87.47865047588999,20.047612968803225]), {'name': 'ZN_190'}), 
-ee.Feature(ee.Geometry.Point([-87.47852172985728,20.049850436525013]), {'name': 'ZN_191'}),
+ee.Feature(ee.Geometry.Point([-87.47798385687244,20.07908399275756]), {'name': 'ZN_191'}),
 ee.Feature(ee.Geometry.Point([-87.47849912368149,20.052128896586424]), {'name': 'ZN_192'}),
 ee.Feature(ee.Geometry.Point([-87.47820432769572,20.054420941804718]), {'name': 'ZN_193'}),
 ee.Feature(ee.Geometry.Point([-87.47748407000297,20.05669200884111]), {'name': 'ZN_194'}),
@@ -839,3 +838,4 @@ Map.addLayer (ZS, {color:'cyan'}, 'ZS');
 
 //======================================19.Centrar el mapa en el archivo vectorial de la RBSK (Perimetro).==================================================/
 Map.centerObject (Sian_Per, 10);
+
