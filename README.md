@@ -1,7 +1,7 @@
 # VCA_RBSK_DCA.
 Estimación de variables climaticas ambientales en la reserva de la biosfera de sian ka´an (RBSK).
 
-# Desarrollo de código y obtención de información para su posterior análisis.
+# Estructura de script para la extracción y análisis de variables climaticas ambientales (VCA) en el área de estudio.
 
 ## Descripción 📋
 El presente código se encuentra estructurado para obtener los valores mensuales por año de las variables climaticas ambientales, dentro de la plataforma Google Earth Engine para la Reserva de la Bisofera de Sian Ka´an (RBSK), Quintana Roo, México. 
